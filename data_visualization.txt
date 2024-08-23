@@ -228,5 +228,54 @@ d3.selectAll("h2").data(dataset).enter().append("h2").text("New Title")
   </script>
 </body>
 
+#create a bar for each dat point in the set
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+    
+    const w = 500;
+    const h = 100;
+    
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+    
+    svg.selectAll("rect")
+       // Add your code below this line
+        .data(dataset)
+        .enter()
+        .append("rect")   
+       
+       
+       // Add your code above this line
+       .attr("x", 0)
+       .attr("y", 0)
+       .attr("width", 25)
+       .attr("height", 100);
+  </script>
+</body>	
 
+#dynamically set the coordinates for each bar
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+    const w = 500;
+    const h = 100;
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => {
+         return i * 30
+       })
+       .attr("y", 0)
+       .attr("width", 25)
+       .attr("height", 100);
+  </script>
+</body>
 
